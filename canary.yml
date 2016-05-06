@@ -2,7 +2,7 @@ resources:
 - name: super-latent-app
   type: git
   source:
-    uri: git@github.com:msmykowski/super-latent-app
+    uri: https://github.com/msmykowski/super-latent-app
     branch: master
 
 jobs:
@@ -20,7 +20,13 @@ jobs:
   plan:
   - get: super-latent-app
   - task: latency-check-task
-    file: latency-check.yml
+    config:
+      platform: linux
+
+      inputs:
+      - name: super-latent-app
+      run:
+        path: super-latent-app/latency-check.sh
 
 - name: map-routes-to-green
   public: true
