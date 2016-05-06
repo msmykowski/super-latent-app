@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
 echo "map to green running"
 #for ROUTE in ${ROUTES[@]}; do
