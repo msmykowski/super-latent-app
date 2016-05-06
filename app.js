@@ -1,7 +1,7 @@
 var express = require('express');
 var app = express();
 
-app.get('/latent', function (req, res) {
+app.get('/latent/:latency', function (req, res) {
   res.send('I\'m back');
 });
 
