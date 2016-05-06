@@ -1,0 +1,7 @@
+---
+platform: linux
+
+inputs:
+- name: super-latent-app
+run:
+  path: deploy-blue.sh

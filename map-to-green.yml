@@ -1,0 +1,12 @@
+---
+platform: linux
+#
+#params:
+#  USERNAME:
+#  PASSWORD:
+#  ENV:
+
+inputs:
+- name: super-latent-app
+run:
+  path: map-to-green.sh

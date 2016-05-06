@@ -1,0 +1,31 @@
+resources:
+- name: super-latent-app
+  type: git
+  source:
+    uri: git@github.com:msmykowski/super-latent-app
+    branch: master
+
+jobs:
+- name: canary-deploy-blue
+  public: true
+  serial: true
+  plan:
+  - get: super-latent-app
+  - task: deploy-blue-task
+    file: deploy-blue.yml
+
+- name: latency-check
+  public: true
+  serial: true
+  plan:
+  - get: super-latent-app
+  - task: latency-check-task
+    file: latency-check.yml
+
+- name: map-routes-to-green
+  public: true
+  serial: true
+  plan:
+  - get: super-latent-app
+  - task: map-routes-to-green
+    file: map-routes-to-green.yml
