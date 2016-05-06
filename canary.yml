@@ -27,6 +27,8 @@ jobs:
   serial: true
   plan:
   - get: super-latent-app
+    passed: [ "canary-deploy-blue" ]
+    trigger: true
   - task: latency-check-task
     config:
      platform: linux
@@ -38,12 +40,30 @@ jobs:
      run:
        path: super-latent-app/latency-check.sh
 
-- name: map-routes-to-green
+- name: deploy-green
   public: true
   serial: true
   plan:
   - get: super-latent-app
-  - task: map-routes-to-green
+    passed: [ "latency-check" ]
+  - task: deploy-green
+    config:
+     platform: linux
+
+     image: docker:///pivotalcf/apm-ui-final
+
+     inputs:
+     - name: super-latent-app
+     run:
+       path: super-latent-app/deploy-green.sh
+
+- name: map-to-green
+  public: true
+  serial: true
+  plan:
+  - get: super-latent-app
+    passed: [ "deploy-green" ]
+  - task: map-to-green
     config:
      platform: linux
 
