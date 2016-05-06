@@ -1,0 +1,14 @@
+{
+  "name": "super-latent-app",
+  "version": "0.1.0",
+  "description": "very latent",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "YT MS",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.13.4"
+  }
+}

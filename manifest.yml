@@ -1,0 +1,6 @@
+---
+applications:
+  - name: super-latent-app
+    buildpack: nodejs_buildpack
+    path: .
+    memory: 1024MB
