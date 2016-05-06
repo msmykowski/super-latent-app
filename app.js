@@ -2,10 +2,6 @@ var express = require('express');
 var app = express();
 
 app.get('/latent', function (req, res) {
-  res.send('I\'m back');
-});
-
-app.get('/error', function (req, res) {
   res.status(500).send('errrrrrorrrrrr');
 });
 
