@@ -1,10 +1,8 @@
 var express = require('express');
 var app = express();
 
-app.get('/latent/:latency', function (req, res) {
-  setTimeout(function() {
-    res.send('I\'m back');
-  }, parseInt(req.params.latency) * 1000);
+app.get('/latent', function (req, res) {
+  res.send('I\'m back');
 });
 
 app.get('/error', function (req, res) {
