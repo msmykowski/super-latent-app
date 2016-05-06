@@ -1,7 +1,0 @@
----
-platform: linux
-
-inputs:
-- name: super-latent-app
-run:
-  file: latency-check

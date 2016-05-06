@@ -12,7 +12,13 @@ jobs:
   plan:
   - get: super-latent-app
   - task: deploy-blue-task
-    file: deploy-blue.yml
+    config:
+     platform: linux
+
+     inputs:
+     - name: super-latent-app
+     run:
+       path: super-latent-app/deploy-blue.sh
 
 - name: latency-check
   public: true
